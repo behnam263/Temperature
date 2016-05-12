@@ -7,6 +7,18 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="267*"/>
+            <RowDefinition Height="52*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="255*"/>
+            <ColumnDefinition Width="262*"/>
+        </Grid.ColumnDefinitions>
+        <TextBox x:Name="Inputtxt" Grid.Column="0" Text="" AcceptsReturn="True">
+            
+        </TextBox>
+        <TextBox x:Name="outputtxt" Grid.Column="1" Text="" AcceptsReturn="True"/>
+        <Button Content="Can I go out?" Grid.ColumnSpan="2" Grid.Row="1" Click="Button_Click"/>
     </Grid>
 </Window>

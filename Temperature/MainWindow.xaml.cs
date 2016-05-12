@@ -20,9 +20,29 @@ namespace Temperature
     /// </summary>
     public partial class MainWindow : Window
     {
+        Business business;
         public MainWindow()
         {
             InitializeComponent();
+             business = new Business();
+            Inputtxt.Text = "HOT 8, 6, 4, 2, 1, 7;\nCOLD 8, 6, 3, 4, 2, 5, 1, 7;\nHOT 8, 6, 6;\nHOT 8, 6, 3;\nCOLD 8, 6, 3, 4, 2, 5, 7;\nCOLD 6;";
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            outputtxt.Text = "";
+            string[] str =  Inputtxt.Text.ToLower().Split(new string[] {";" , "\n" },StringSplitOptions.RemoveEmptyEntries);
+
+            for (int i = 0; i < str.Length; i++)
+            {
+              string[] input=  str[i].Split(new string[] {" ","," },StringSplitOptions.RemoveEmptyEntries);
+              bool result=   business.checkRules(input);
+                if (result)
+                    outputtxt.Text+= business.Output(input) + "Success";
+                else
+                    outputtxt.Text += business.Output(input) + "Fail";
+                outputtxt.Text += "\n";
+            }
         }
     }
 }
