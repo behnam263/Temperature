@@ -41,7 +41,9 @@ namespace Temperature
                     outputtxt.Text+= business.Output(input) + "Success";
                 else
                     outputtxt.Text += business.Output(input) + "Fail";
+
                 outputtxt.Text += "\n";
+             
             }
         }
     }
